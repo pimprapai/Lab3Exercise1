@@ -1,9 +1,17 @@
 package th.ac.tu.siit.its333.lab3exercise1;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 public class CourseListActivity extends ActionBarActivity {
@@ -12,6 +20,14 @@ public class CourseListActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
+        Intent res = this.getIntent();
+        String input=res.getStringExtra("codeList");
+
+        TextView tvDisplay=(TextView)findViewById(R.id.tvList);
+
+        tvDisplay.setText("List of Courses\n"+input);
+        setResult(RESULT_OK, res);
+
     }
 
 
